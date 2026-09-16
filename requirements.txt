@@ -1,0 +1,41 @@
+# General requirements
+gymnasium
+matplotlib
+numpy<2.0.0
+PyYAML
+sacred
+six
+tensorboard-logger
+pandas
+torch
+scikit-learn
+pyglet==1.5.27
+tqdm
+pettingzoo[all]==1.24.3
+rich
+wandb
+
+# For MPE
+seaborn
+
+# For RWARE v1
+networkx
+
+# For RWARE V2
+rware>1.0.3
+
+# For LBF v3
+lbforaging>1.1.1
+
+# For PettingZoo
+torchvision
+albumentations
+transformers
+autorom
+
+# For Overcooked
+pygame
+scipy
+dill
+ipython
+ipywidgets

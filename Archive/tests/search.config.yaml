@@ -1,0 +1,80 @@
+exclude: null
+grid-search:
+
+  "--config":
+    - "qplex"
+    - "maa2c"
+
+  lr:
+    - 0.0001
+
+  standardise_rewards:
+    - True
+
+  use_rnn:
+    - False
+
+  hidden_dim:
+    - 64
+
+  t_max:
+    - 100
+  test_nepisode:
+    - 10
+  test_interval:
+    - 100
+  log_interval:
+    - 100
+  save_model_interval:
+    - 1000000
+  save_model:
+    - false
+  batch_size:
+    1
+  buffer_size:
+    1
+    
+grid-search-groups:
+  env0:
+    - "--env-config": "pettingzoo"
+    - env_args.key: pistonball_v6
+    - env_args.time_limit: 25
+  env1:
+    - "--env-config": "pettingzoo"
+    - env_args.key: cooperative_pong_v5
+    - env_args.time_limit: 25
+
+plotting:
+  base_sacred_path: "./results/sacred"
+  base_save_path: "./results/multiple-exps-plots"
+  env_name: "pettingzoo"
+  plot_train: false
+  plot_legend_bool: true
+  algorithm_legend_map:
+    "qmix": "QMIX"
+    "qmix_ns": "QMIX_ns"
+    "cds": "CDS"
+    "coma": "COMA"
+    "coma_ns": "COMA_ns"
+    "emc": "EMC"
+    "eoi": "EOI"
+    "happo": "HAPPO"
+    "ia2c": "IA2C"
+    "ia2c_ns": "IA2C_ns"
+    "ippo": "IPPO"
+    "ippo_ns": "IPPO_ns"
+    "iql": "IQL"
+    "iql_ns": "IQL_ns"
+    "maa2c": "MAA2C"
+    "maa2c_ns": "MAA2C_ns"
+    "maddpg": "MADDPG"
+    "maddpg_ns": "MADDPG_ns"
+    "mappo": "MAPPO"
+    "mappo_ns": "MAPPO_ns"
+    "maser": "MASER"
+    "mat_dec": "MAT-DEC"
+    "qplex": "QPLEX"
+    "vdn": "VDN"
+    "vdn_ns": "VDN_ns"
+    "maven": "MAVEN"
+    "commformer": "CommFormer"
