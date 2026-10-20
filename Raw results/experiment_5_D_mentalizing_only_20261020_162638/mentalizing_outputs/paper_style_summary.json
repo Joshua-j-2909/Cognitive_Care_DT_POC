@@ -1,0 +1,29 @@
+{
+    "episode_return": 0.0,
+    "episode_length": 500,
+    "observed_summary": {
+        "return_norm": 0.0,
+        "positive_reward_norm": 0.0,
+        "idle_ratio": 0.0,
+        "repeat_action_ratio": 1.0,
+        "action_entropy_norm": 0.0,
+        "termination": 1.0
+    },
+    "posterior_theta_mean": {
+        "theta0": -0.5793783952499855,
+        "theta1": 1.1096313832214546,
+        "theta2": 0.9036373332188532
+    },
+    "posterior_theta_std": {
+        "theta0": 0.532404276816824,
+        "theta1": 0.47720276000853307,
+        "theta2": 0.3003523813135999
+    },
+    "agent_type_distribution": {
+        "delivery_focused": 0.4,
+        "collision_avoiding": 0.29,
+        "random_or_untrained": 0.31
+    },
+    "most_likely_type": "delivery_focused",
+    "best_distance": 1.1593427864204748
+}
