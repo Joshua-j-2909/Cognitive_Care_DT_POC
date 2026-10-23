@@ -11,9 +11,9 @@ This README explains how the project works, how to set it up and run it, how to 
 
 ## Project Purpose
 
-This project implements a proof of concept for uncertainty aware interpretation within a future Cognitive Care Digital Twin decision support framework.
+This project implements a proof of concept for uncertainty aware interpretation within a future Cognitive Care Digital Twin for Ambient Assisted Care.
 
-The implementation uses a modified PyMARLZoo+ and RWARE multi agent reinforcement learning setup. RWARE is used as an abstract multi agent environment because it includes multiple interacting agents, partial observability, sequential actions, sparse rewards and coordination requirements.
+The implementation uses a modified PyMARLZoo+ and RWARE multi-agent reinforcement learning setup. RWARE is used as a simplified medicine delivery robot enviroment fo Ambient Assisted Care because it includes multiple interacting agents, partial observability, sequential actions, sparse rewards and coordination requirements. It remains an abstract test environment rather than a direct representation of health or social care
 
 The main addition to the existing codebase is a Bayesian mentalizing module. The module interprets observable agent behaviour and estimates a probability distribution across three simplified hidden behaviour states:
 1. delivery_focused
@@ -31,7 +31,7 @@ This dissertation does not replace the original frameworks. Selected parts of Py
 
 ## How the Code Works
 
-The project works as follows:
+The code works as follows:
 * pymarlzooplus/main.py loads the selected algorithm and environment configuration.
 * The IQL configuration is used to train the independent learning agents.
 * The gymma environment configuration loads the RWARE environment through the environment wrapper used by PyMARLZoo+.
@@ -272,25 +272,25 @@ episode time limit = 500
 Training is headless by default, so a graphical warehouse window is not expected during a normal training run.
 
 
-## Reproducing Experiments 1 to 4
+## Reproducing Experiments 1 and 2
 
-Experiments 1 to 4 are controlled validation tests for the mentalizing module. They do not train the RWARE agents. Instead, each script generates predefined behavioural evidence and passes it directly into the mentalizer so that the resulting probability distributions and uncertainty measures can be examined.
+Experiments 1 and 2 are the controlled validation tests reported in the paper. They do not train the RWARE agents. Instead, each script generates predefined behavioural evidence and passes it directly into the mentalizer so that the resulting probability distributions and uncertainty measures can be examined.
 
 Run the experiments from the project root with the ccdt_clean Conda environment activated:
 
+Experiment 1:
 python pymarlzooplus/uncertainty_tests/mental_state_confidence_test.py
 
-python pymarlzooplus/uncertainty_tests/ambiguous_state_uncertainty_test.py
-
-python pymarlzooplus/uncertainty_tests/balanced_ambiguous_uncertainty_test.py
-
+Experiment 2:
 python pymarlzooplus/uncertainty_tests/balanced_ambiguous_low_reward_test.py
 
 Each script runs 50 trials and saves its trial level and aggregate outputs to a separate results folder.
 
-## Reproducing Experiment 5
+The additional scripts ambiguous_state_uncertainty_test.py and balanced_ambiguous_uncertainty_test.py were used during development but are not reported as separate experiments in the current paper.
 
-Experiment 5 compares four RWARE IQL conditions to examine the effects of pickup reward shaping and the additional mental state input. Each condition uses the same environment, training length and random seed so that the configuration changes can be compared directly.
+## Reproducing Experiment 3
+
+Experiment 3 compares four RWARE IQL conditions to examine the effects of pickup reward shaping and the additional mental state input. Each condition uses the same environment, training length and random seed so that the configuration changes can be compared directly.
 
 Only one seed was used for each condition, so the Experiment 5 results are treated as descriptive comparisons rather than evidence of statistically significant performance differences.
 
@@ -446,8 +446,16 @@ These are simplified behavioural categories created for testing the inference me
 
 ### Original Framework and Environment
 
-G. Papadopoulos, A.  Kontogiannis, F. Papadopoulou, C. Poulianou, I. Koumentis, and G. Vouros, "An Extended Benchmarking of Multi-Agent Reinforcement Learning Algorithms in Complex Fully Cooperative Tasks," in Proc. 24th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2025), International Foundation for Autonomous Agents and Multiagent Systems (IFAAMAS), 2025.
+G. Papadopoulos, A. Kontogiannis, F. Papadopoulou,
+C. Poulianou, I. Koumentis, and G. Vouros, “An ex-
+tended benchmarking of multi-agent reinforcement learn-
+ing algorithms in complex fully cooperative tasks,” arXiv
+preprint arXiv:2502.04773, 2025.
 
 ### Bayesian Mentalizing Inspiration
 
-L. Zhinin-Vera, E. Pretel, Victor Lopez-Jaquero, E. Navarro, and Pascual Gonzalez, "Mindful Human Digital Twins: Integrating Theory of Mind With Multi-Agent Reinforcement Learning," Applied Soft Computing, vol. 174, Art. no. 112939, Apr. 2025, doi: 10.1016/j.asoc.2025.112939. 
+L. Zhinin-Vera, E. Pretel, V. L´opez-Jaquero, E. Navarro,
+and P. Gonz´alez, “Mindful human digital twins: inte-
+grating theory of mind with multi-agent reinforcement
+learning,” Applied Soft Computing, vol. 174, p. 112939,
+2025.
